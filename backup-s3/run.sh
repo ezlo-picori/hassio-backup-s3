@@ -11,7 +11,8 @@ echo $now
 
 aws configure set aws_access_key_id ${KEY}
 aws configure set aws_secret_access_key ${SECRET}
+aws configure set plugins.endpoint awscli_plugin_endpoint
 
-aws s3 sync /backup/ s3://$BUCKET/  --delete --endpoint-url ${ENDPOINT}
+aws s3 sync /backup/ s3://${BUCKET}/  --delete --endpoint-url ${ENDPOINT}
 
 echo "Done"
